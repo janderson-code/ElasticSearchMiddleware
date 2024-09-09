@@ -1,6 +1,8 @@
-﻿using br.com.sharklab.elasticsearch.Models.Generics;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using elasticsearch.Models.Generics;
+
+namespace elasticsearch.Interfaces;
 
 public interface IElasticsearchService
 {

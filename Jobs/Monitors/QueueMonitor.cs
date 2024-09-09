@@ -1,11 +1,11 @@
-﻿using br.com.sharklab.elasticsearch.Models.Tasks;
-using Quartz;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using elasticsearch.Models.Tasks;
+using Quartz;
 
-namespace br.com.sharklab.elasticsearch.Jobs.Monitors
+namespace elasticsearch.Jobs.Monitors
 {
     public class QueueMonitor
     {

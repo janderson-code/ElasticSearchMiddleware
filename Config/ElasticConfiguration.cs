@@ -1,4 +1,4 @@
-﻿namespace br.com.sharklab.elasticsearch.Config
+﻿namespace elasticsearch.Config
 {
     public class ElasticConfiguration
     {

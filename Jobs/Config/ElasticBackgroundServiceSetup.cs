@@ -1,10 +1,10 @@
-﻿using br.com.sharklab.elasticsearch.Models.Tasks;
+﻿using System;
+using System.Collections.Concurrent;
+using elasticsearch.Models.Tasks;
 using Microsoft.Extensions.Options;
 using Quartz;
-using System;
-using System.Collections.Concurrent;
 
-namespace br.com.sharklab.elasticsearch.Jobs.Config
+namespace elasticsearch.Jobs.Config
 {
     internal class ElasticBackgroundServiceSetup : IConfigureOptions<QuartzOptions>
     {

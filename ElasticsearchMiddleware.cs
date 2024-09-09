@@ -1,18 +1,18 @@
 ﻿#nullable enable
 
-using br.com.sharklab.elasticsearch.Models.Generics;
-using br.com.sharklab.elasticsearch.Models.Tasks;
-using br.com.sharklab.elasticsearch.Utils;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using elasticsearch.Extensions.Json;
+using elasticsearch.Models.Tasks;
+using elasticsearch.Utils;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
-namespace br.com.sharklab.elasticsearch
+namespace elasticsearch
 {
     internal sealed class ElasticSearchMiddleware : IMiddleware
     {

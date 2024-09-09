@@ -1,11 +1,13 @@
-﻿using br.com.sharklab.elasticsearch.Jobs.Config;
-using br.com.sharklab.elasticsearch.Models.Tasks;
+﻿using System.Collections.Concurrent;
+using elasticsearch.Interfaces;
+using elasticsearch.Jobs.Config;
+using elasticsearch.Models.Services;
+using elasticsearch.Models.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
-using System.Collections.Concurrent;
 
-namespace br.com.sharklab.elasticsearch.Config
+namespace elasticsearch.Config
 {
     public static class ElasticDependencyInjectionConfig
     {

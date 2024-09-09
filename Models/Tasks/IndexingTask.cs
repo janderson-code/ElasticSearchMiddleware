@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace br.com.sharklab.elasticsearch.Models.Tasks
+namespace elasticsearch.Models.Tasks
 {
     public class IndexingTask
     {

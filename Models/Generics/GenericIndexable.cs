@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace br.com.sharklab.elasticsearch.Models.Generics
+namespace elasticsearch.Models.Generics
 {
     public class GenericIndexable<T>
     {

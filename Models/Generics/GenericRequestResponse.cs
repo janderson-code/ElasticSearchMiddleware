@@ -1,9 +1,10 @@
-﻿using br.com.sharklab.elasticsearch.Models.Tasks;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using elasticsearch.Extensions.Json;
+using elasticsearch.Models.Tasks;
+using Newtonsoft.Json;
 
-namespace br.com.sharklab.elasticsearch.Models.Generics
+namespace elasticsearch.Models.Generics
 {
     public class GenericRequestResponse
     {

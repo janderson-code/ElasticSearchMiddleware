@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace br.com.sharklab.elasticsearch.Attributes
+namespace elasticsearch.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class ExcludeElasticsearchAttribute : Attribute

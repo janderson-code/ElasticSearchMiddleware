@@ -1,12 +1,12 @@
-﻿using br.com.sharklab.elasticsearch.Utils;
+﻿using System;
+using elasticsearch.Utils;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Formatting.Compact;
 using Serilog.Sinks.Elasticsearch;
-using System;
 using ILogger = Serilog.ILogger;
 
-namespace br.com.sharklab.elasticsearch.Models.LogTemplates
+namespace elasticsearch.Models.LogTemplates
 {
     public class CustomLogger
     {

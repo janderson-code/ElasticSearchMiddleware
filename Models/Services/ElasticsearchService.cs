@@ -1,10 +1,13 @@
-﻿using br.com.sharklab.elasticsearch.Config;
-using br.com.sharklab.elasticsearch.Models.Generics;
-using br.com.sharklab.elasticsearch.Utils;
+﻿using System;
+using System.Threading.Tasks;
+using elasticsearch.Config;
+using elasticsearch.Interfaces;
+using elasticsearch.Models.Generics;
+using elasticsearch.Utils;
 using Microsoft.Extensions.Options;
 using Nest;
-using System;
-using System.Threading.Tasks;
+
+namespace elasticsearch.Models.Services;
 
 public class ElasticsearchService : IElasticsearchService
 {
@@ -16,7 +19,7 @@ public class ElasticsearchService : IElasticsearchService
         var uri = new Uri(elasticsearchSettings.Value.Uri);
         var connectionSettings = new ConnectionSettings(uri)
             .DefaultIndex(elasticsearchSettings.Value.DefaultIndex);
-            //.BasicAuthentication(elasticsearchSettings.Value.Username, elasticsearchSettings.Value.Password);
+        //.BasicAuthentication(elasticsearchSettings.Value.Username, elasticsearchSettings.Value.Password);
         _elasticClient = new ElasticClient(connectionSettings);
         _elasticOptions = elasticsearchSettings;
     }

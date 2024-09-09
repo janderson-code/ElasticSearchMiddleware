@@ -1,13 +1,13 @@
-﻿using br.com.sharklab.elasticsearch.Attributes;
-using br.com.sharklab.elasticsearch.Config;
+﻿using System;
+using System.Linq;
+using elasticsearch.Attributes;
+using elasticsearch.Config;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Options;
-using System;
-using System.Linq;
 
-namespace br.com.sharklab.elasticsearch.Utils
+namespace elasticsearch.Utils
 {
     internal static class ElasticUtils
     {

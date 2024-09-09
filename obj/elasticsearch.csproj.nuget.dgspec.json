@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/elasticsearch.csproj": {}
+    "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj": {}
   },
   "projects": {
-    "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/elasticsearch.csproj": {
+    "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj": {
       "version": "1.2.6",
       "restore": {
-        "projectUniqueName": "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/elasticsearch.csproj",
+        "projectUniqueName": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj",
         "projectName": "elasticsearch",
-        "projectPath": "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/elasticsearch.csproj",
+        "projectPath": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj",
         "packagesPath": "/home/janderson/.nuget/packages/",
-        "outputPath": "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/obj/",
+        "outputPath": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/janderson/.nuget/NuGet/NuGet.Config"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {

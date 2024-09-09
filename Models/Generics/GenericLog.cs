@@ -2,7 +2,7 @@
 
 using System;
 
-namespace br.com.sharklab.elasticsearch.Models.Generics
+namespace elasticsearch.Models.Generics
 {
     public class GenericLog<T>
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace br.com.sharklab.elasticsearch.Utils
+namespace elasticsearch.Utils
 {
     public static class DateConfiguration
     {

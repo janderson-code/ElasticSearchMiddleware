@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "alyNyoCk8EGoRRFreUBxXKM4TWOmqlIZ4TcQya9NsgViC36BtzKkEiRr7z8QTqAndwAOHlJmKksbjILyXFVjaQ==",
+  "dgSpecHash": "ylAIYV7sFwE=",
   "success": true,
-  "projectFilePath": "/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/elasticsearch.csproj",
+  "projectFilePath": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj",
   "expectedPackageFiles": [
     "/home/janderson/.nuget/packages/ben.demystifier/0.4.1/ben.demystifier.0.4.1.nupkg.sha512",
     "/home/janderson/.nuget/packages/elastic.channels/0.5.5/elastic.channels.0.5.5.nupkg.sha512",

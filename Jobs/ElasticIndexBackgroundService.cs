@@ -1,14 +1,15 @@
 ﻿#nullable enable
 
-using br.com.sharklab.elasticsearch.Models.Generics;
-using br.com.sharklab.elasticsearch.Models.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Quartz;
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
+using elasticsearch.Interfaces;
+using elasticsearch.Models.Generics;
+using elasticsearch.Models.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Quartz;
 
-namespace br.com.sharklab.elasticsearch.Jobs;
+namespace elasticsearch.Jobs;
 
 internal class ElasticIndexBackgroundService : IJob
 {
