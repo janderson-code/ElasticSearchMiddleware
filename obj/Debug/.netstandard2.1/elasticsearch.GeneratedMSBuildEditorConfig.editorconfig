@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = elasticsearch
+build_property.ProjectDir = /home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
