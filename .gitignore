@@ -391,3 +391,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfoInputs.cache
+obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfo.cs
