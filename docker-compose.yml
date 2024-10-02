@@ -34,6 +34,7 @@ services:
     - cluster.routing.allocation.disk.threshold_enabled=false
     - discovery.type=single-node
     - ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g
+    - xpack.security.enabled=false
     ulimits:
       memlock:
         hard: -1
