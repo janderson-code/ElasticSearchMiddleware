@@ -19,3 +19,10 @@ Abaixo as configurações para poder usar esta biblioteca, lembrando que antes d
 ![image](https://github.com/user-attachments/assets/37d10f83-9af2-4503-8554-e2153bf73b39)
 
 
+## Atributo pra não gravar requisições de Determinada Controller
+Caso queira que uma controller não tenha sua requisições indexadas para o Elastic adicione o atributo abaixo
+
+![image](https://github.com/user-attachments/assets/0c514e27-daa5-4bc0-af9f-5ea8a2e5eee7)
+
+
+
