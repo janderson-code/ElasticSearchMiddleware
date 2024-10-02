@@ -393,3 +393,4 @@ FodyWeavers.xsd
 *.sln.iml
 obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfoInputs.cache
 obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfo.cs
+*.cache

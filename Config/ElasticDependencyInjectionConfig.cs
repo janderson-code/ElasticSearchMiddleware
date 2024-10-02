@@ -34,7 +34,7 @@ namespace elasticsearch.Config
             return services;
         }
 
-        public static IApplicationBuilder UseElasticServices(this IApplicationBuilder app)
+        public static IApplicationBuilder UseElasticMiddleware(this IApplicationBuilder app)
         {
             app.UseMiddleware<ElasticSearchMiddleware>();
 
