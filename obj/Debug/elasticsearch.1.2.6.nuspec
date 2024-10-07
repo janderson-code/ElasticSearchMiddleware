@@ -6,6 +6,7 @@
     <title>elasticsearch</title>
     <authors>Janderson Barbosa Gonçalves</authors>
     <description>Pacote que representa o Middleware para o uso do Elastic</description>
+    <repository type="git" commit="461e772a5dbe2f279fa44f3e96bb3d190f323878" />
     <dependencies>
       <group targetFramework=".NETStandard2.1">
         <dependency id="Elastic.CommonSchema.Serilog" version="8.6.1" exclude="Build,Analyzers" />
@@ -29,6 +30,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="/home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/bin/Debug/.netstandard2.1/elasticsearch.dll" target="lib/netstandard2.1/elasticsearch.dll" />
+    <file src="/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/bin/Debug/.netstandard2.1/elasticsearch.dll" target="lib/netstandard2.1/elasticsearch.dll" />
   </files>
 </package>

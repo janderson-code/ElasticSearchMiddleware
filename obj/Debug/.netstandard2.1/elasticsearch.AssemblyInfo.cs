@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Pacote que representa o Middleware para o uso do Elastic")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.6+32b6d8e9e4a7d9e4d482ae8ef3d829536b374fd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.6+461e772a5dbe2f279fa44f3e96bb3d190f323878")]
 [assembly: System.Reflection.AssemblyProductAttribute("elasticsearch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("elasticsearch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.2.6.0")]

@@ -394,3 +394,13 @@ FodyWeavers.xsd
 obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfoInputs.cache
 obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfo.cs
 *.cache
+bin/Debug/.netstandard2.1/elasticsearch.dll
+bin/Debug/.netstandard2.1/elasticsearch.pdb
+bin/Debug/elasticsearch.1.2.6.nupkg
+obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfo.cs
+obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfoInputs.cache
+obj/Debug/.netstandard2.1/elasticsearch.csproj.CoreCompileInputs.cache
+obj/Debug/.netstandard2.1/elasticsearch.csproj.FileListAbsolute.txt
+obj/Debug/.netstandard2.1/elasticsearch.dll
+obj/Debug/.netstandard2.1/elasticsearch.pdb
+obj/Debug/elasticsearch.1.2.6.nuspec

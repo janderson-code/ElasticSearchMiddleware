@@ -8,3 +8,14 @@
 /home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/obj/Debug/.netstandard2.1/elasticsearch.csproj.CoreCompileInputs.cache
 /home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/obj/Debug/.netstandard2.1/elasticsearch.dll
 /home/janderson/Documentos/GitHub/AniManga/src/Infrastructure/Libs/ElasticSearch/obj/Debug/.netstandard2.1/elasticsearch.pdb
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/bin/Debug/.netstandard2.1/elasticsearch.deps.json
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/bin/Debug/.netstandard2.1/elasticsearch.dll
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/bin/Debug/.netstandard2.1/elasticsearch.pdb
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.csproj.AssemblyReference.cache
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.GeneratedMSBuildEditorConfig.editorconfig
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfoInputs.cache
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.AssemblyInfo.cs
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.csproj.CoreCompileInputs.cache
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.sourcelink.json
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.dll
+/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/Debug/.netstandard2.1/elasticsearch.pdb
