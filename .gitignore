@@ -404,3 +404,4 @@ obj/Debug/.netstandard2.1/elasticsearch.csproj.FileListAbsolute.txt
 obj/Debug/.netstandard2.1/elasticsearch.dll
 obj/Debug/.netstandard2.1/elasticsearch.pdb
 obj/Debug/elasticsearch.1.2.6.nuspec
+*.cache
