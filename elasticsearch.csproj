@@ -6,11 +6,14 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>BK BANK</Company>
     <Description>Pacote que representa o Middleware para o uso do Elastic</Description>
-    <Version>1.2.6</Version><Nullable>enable</Nullable>
+    <Version>2.0</Version><Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <Title>$(AssemblyName)</Title>
     <Authors>Janderson Barbosa Gonçalves</Authors>
     <RootNamespace>elasticsearch</RootNamespace>
+    <PackageProjectUrl>https://github.com/janderson-code/ElasticSearchMiddleware</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/janderson-code/ElasticSearchMiddleware</RepositoryUrl>
+    <PackageTags>ElasticSearch</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

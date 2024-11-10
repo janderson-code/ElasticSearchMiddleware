@@ -13,11 +13,12 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BK BANK")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Pacote que representa o Middleware para o uso do Elastic")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.6+5c673e2d558ab7d82e5d2dad039097b2927dd66a")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0+641c8e9376e095cd02666201a696ce5596abcb3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("elasticsearch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("elasticsearch")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.2.6.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/janderson-code/ElasticSearchMiddleware")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 
