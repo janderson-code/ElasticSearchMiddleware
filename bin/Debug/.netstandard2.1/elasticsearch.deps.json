@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "elasticsearch/1.2.6": {
+      "elasticsearch/2.0": {
         "dependencies": {
           "Elastic.CommonSchema.Serilog": "8.6.1",
           "Elastic.Serilog.Sinks": "8.6.1",
@@ -1712,7 +1712,7 @@
     }
   },
   "libraries": {
-    "elasticsearch/1.2.6": {
+    "elasticsearch/2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
