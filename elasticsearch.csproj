@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>.netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Company>BK BANK</Company>
+    <Company>Janderson Barbosa</Company>
     <Description>Pacote que representa o Middleware para o uso do Elastic</Description>
     <Version>2.0</Version><Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>

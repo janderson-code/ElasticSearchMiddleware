@@ -7504,7 +7504,7 @@
     "/home/janderson/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.2.6",
+    "version": "2.0.0",
     "restore": {
       "projectUniqueName": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/elasticsearch.csproj",
       "projectName": "elasticsearch",
@@ -7512,6 +7512,7 @@
       "packagesPath": "/home/janderson/.nuget/packages/",
       "outputPath": "/home/janderson/Documentos/GitHub/ElasticSearchMiddleware/obj/",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "/home/janderson/.nuget/NuGet/NuGet.Config"
       ],
