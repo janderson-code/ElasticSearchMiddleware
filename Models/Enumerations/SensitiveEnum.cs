@@ -16,10 +16,10 @@ namespace elasticsearch.Models.Enumerations
             Regex.Replace(value, @"([0-9]{4})\s([0-9]{4})\s([0-9]{4})\s([0-9]{4})", "$1********$4"));
 
         public static readonly SensitiveEnum DefaultInitial = new SensitiveEnum(3, "DefaultInitial", value =>
-            Regex.Replace(value, @"(\d{3}).", "*****$1"));
+            Regex.Replace(value, @"(?<=\d{3}).+", "*****"));
 
         public static readonly SensitiveEnum DefaultLast = new SensitiveEnum(4, "DefaultLast", value =>
-            Regex.Replace(value, @".(\d{3})$", "*****$1"));
+            Regex.Replace(value, @".+(?=\d{3}$)", "*****"));
 
         private Func<string, string> MaskFunction { get; }
 
