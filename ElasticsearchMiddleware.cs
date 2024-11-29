@@ -11,6 +11,7 @@ using elasticsearch.Models.Tasks;
 using elasticsearch.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Newtonsoft.Json;
 
@@ -41,19 +42,6 @@ namespace elasticsearch
             var stopwatch = Stopwatch.StartNew();
 
             string requestObj = await ReadRequestBody(context.Request);
-
-            var controllerActionDescriptor = context.Features?.Get<IEndpointFeature>()?
-                .Endpoint?.Metadata?.GetMetadata<ControllerActionDescriptor?>();
-
-            if (controllerActionDescriptor is not null)
-            {
-                var requestType = controllerActionDescriptor?.Parameters?.FirstOrDefault()?.ParameterType;
-
-                if (requestType is not null)
-                {
-                    requestObj = SensitiveDataExtensions.SanitizeSensitiveData(requestObj, requestType);
-                }
-            }
 
             var originalBody = context.Response.Body;
 
@@ -117,15 +105,27 @@ namespace elasticsearch
             return requestObj;
         }
 
-        private async Task CreateListIndexTasks(HttpContext context, string requestObj, string responseContent,
+        private Task CreateListIndexTasks(HttpContext context, string requestObj, string responseContent,
             Stopwatch stopwatch)
         {
             ControllerActionDescriptor? controllerActionDescriptor = context.Features?.Get<IEndpointFeature>()?
                 .Endpoint?.Metadata?.GetMetadata<ControllerActionDescriptor?>();
 
-            if (controllerActionDescriptor == null) return;
+            if (controllerActionDescriptor is null) return Task.CompletedTask;
 
-            string nameOfIndex = ElasticUtils.CreateIndexNameApi(controllerActionDescriptor);
+            var requestType = controllerActionDescriptor?.Parameters?.FirstOrDefault()?.ParameterType;
+
+            if (requestType is not null)
+                requestObj = SensitiveDataExtensions.SanitizeSensitiveData(requestObj, requestType);
+
+            var responseType = controllerActionDescriptor!.EndpointMetadata
+                .OfType<ProducesResponseTypeAttribute>()
+                .FirstOrDefault( c=> c.StatusCode.Equals(200))!.Type;
+
+            if (responseType is not null)
+                responseContent = SensitiveDataExtensions.SanitizeSensitiveData(responseContent,responseType);
+
+            string nameOfIndex = ElasticUtils.CreateIndexNameApi(controllerActionDescriptor!);
 
             var indexingTask = new IndexingTask
             {
@@ -142,6 +142,8 @@ namespace elasticsearch
             };
 
             _indexingTasks.Enqueue(indexingTask);
+            
+            return Task.CompletedTask;
         }
     }
 }
