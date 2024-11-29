@@ -9,12 +9,15 @@ namespace elasticsearch.Models.Enumerations
         public static readonly SensitiveEnum Document = new SensitiveEnum(1, "Document",
             value => DocumentFormat.FormatDoc(value));
 
+        // public static readonly SensitiveEnum CreditCard = new SensitiveEnum(2, "CreditCard", value =>
+        //     Regex.Replace(value, @"^(\d{6}).(\d{4})$", "$1***$2"));      
+        
         public static readonly SensitiveEnum CreditCard = new SensitiveEnum(2, "CreditCard", value =>
-            Regex.Replace(value, @"^(\d{6}).(\d{4})$", "$1***$2"));
+            Regex.Replace(value, @"([0-9]{4})\s([0-9]{4})\s([0-9]{4})\s([0-9]{4})", "$1********$4"));
 
         public static readonly SensitiveEnum DefaultInitial = new SensitiveEnum(3, "DefaultInitial", value =>
             Regex.Replace(value, @"(\d{3}).", "*****$1"));
-        
+
         public static readonly SensitiveEnum DefaultLast = new SensitiveEnum(4, "DefaultLast", value =>
             Regex.Replace(value, @".(\d{3})$", "*****$1"));
 
