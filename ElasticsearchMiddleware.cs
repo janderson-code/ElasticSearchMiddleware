@@ -45,26 +45,10 @@ namespace elasticsearch
             string requestObj = await ReadRequestBody(context.Request);
 
             var originalBodyStream = context.Response.Body;
-
+            
             try
             {
-                using (var buffer = new MemoryStream())
-                {
-                    // Substitui o corpo da resposta pelo buffer temporário
-                    context.Response.Body = buffer;
-
-                    // Processa a próxima etapa no pipeline
-                    await next(context);
-
-                    // Obtém o conteúdo da resposta
-                    string responseContent = await StreamExtensions.ReadResponseContent(buffer);
-
-                    // Registra as informações no índice
-                    await CreateListIndexTasks(context, requestObj, responseContent, stopwatch);
-
-                    // Copia o conteúdo processado de volta para o fluxo original
-                    await StreamExtensions.CopyBufferToOriginalStream(buffer, originalBodyStream);
-                }
+                await ReadResponseBody(context, next, requestObj, stopwatch, originalBodyStream);
             }
             catch (Exception ex)
             {
@@ -75,6 +59,28 @@ namespace elasticsearch
             {
                 // Restauro o corpo do response original para que ele possa ser lido por outros middlewares
                 context.Response.Body = originalBodyStream;
+            }
+        }
+
+        private async Task ReadResponseBody(HttpContext context, RequestDelegate next, string requestObj, Stopwatch stopwatch,
+            Stream originalBodyStream)
+        {
+            using (var buffer = new MemoryStream())
+            {
+                // Substitui o corpo da resposta pelo buffer temporário
+                context.Response.Body = buffer;
+
+                // Processa a próxima etapa no pipeline
+                await next(context);
+
+                // Obtém o conteúdo da resposta
+                string responseContent = await StreamExtensions.ReadResponseContent(buffer);
+
+                // Registra as informações no índice
+                await CreateListIndexTasks(context, requestObj, responseContent, stopwatch);
+
+                // Copia o conteúdo processado de volta para o fluxo original
+                await StreamExtensions.CopyBufferToOriginalStream(buffer, originalBodyStream);
             }
         }
 
