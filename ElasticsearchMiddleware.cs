@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using elasticsearch.Extensions;
 using elasticsearch.Extensions.Json;
 using elasticsearch.Models.Tasks;
 using elasticsearch.Utils;
@@ -43,43 +44,37 @@ namespace elasticsearch
 
             string requestObj = await ReadRequestBody(context.Request);
 
-            var originalBody = context.Response.Body;
+            var originalBodyStream = context.Response.Body;
 
             try
             {
                 using (var buffer = new MemoryStream())
                 {
+                    // Substitui o corpo da resposta pelo buffer temporário
                     context.Response.Body = buffer;
+
+                    // Processa a próxima etapa no pipeline
                     await next(context);
-                    buffer.Seek(0, SeekOrigin.Begin);
-                    string responseContent = await new StreamReader(buffer).ReadToEndAsync();
-                    buffer.Seek(0, SeekOrigin.Begin);
-                    await buffer.CopyToAsync(originalBody);
 
-                    context.Response.Body = originalBody;
+                    // Obtém o conteúdo da resposta
+                    string responseContent = await StreamExtensions.ReadResponseContent(buffer);
 
+                    // Registra as informações no índice
                     await CreateListIndexTasks(context, requestObj, responseContent, stopwatch);
+
+                    // Copia o conteúdo processado de volta para o fluxo original
+                    await StreamExtensions.CopyBufferToOriginalStream(buffer, originalBodyStream);
                 }
             }
             catch (Exception ex)
             {
-                var responseContent = new
-                {
-                    ex.Message,
-                    ex.StackTrace,
-                    StatusCode = 500
-                };
-
-                context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-
-                await CreateListIndexTasks(context, requestObj, JsonConvert.SerializeObject(responseContent),
-                    stopwatch);
-
+                await HandleException(context, ex, requestObj, stopwatch);
                 throw;
             }
             finally
             {
-                context.Response.Body = originalBody;
+                // Restauro o corpo do response original para que ele possa ser lido por outros middlewares
+                context.Response.Body = originalBodyStream;
             }
         }
 
@@ -120,10 +115,10 @@ namespace elasticsearch
 
             var responseType = controllerActionDescriptor!.EndpointMetadata
                 .OfType<ProducesResponseTypeAttribute>()
-                .FirstOrDefault( c=> c.StatusCode.Equals(200))!.Type;
+                .FirstOrDefault(c => c.StatusCode.Equals(200))!.Type;
 
             if (responseType is not null)
-                responseContent = SensitiveDataExtensions.SanitizeSensitiveData(responseContent,responseType);
+                responseContent = SensitiveDataExtensions.SanitizeSensitiveData(responseContent, responseType);
 
             string nameOfIndex = ElasticUtils.CreateIndexNameApi(controllerActionDescriptor!);
 
@@ -142,8 +137,22 @@ namespace elasticsearch
             };
 
             _indexingTasks.Enqueue(indexingTask);
-            
+
             return Task.CompletedTask;
+        }
+
+        private async Task HandleException(HttpContext context, Exception ex, string requestObj, Stopwatch stopwatch)
+        {
+            var errorResponse = JsonConvert.SerializeObject(new
+            {
+                ex.Message,
+                ex.StackTrace,
+                StatusCode = StatusCodes.Status500InternalServerError
+            });
+
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+
+            await CreateListIndexTasks(context, requestObj, errorResponse, stopwatch);
         }
     }
 }
