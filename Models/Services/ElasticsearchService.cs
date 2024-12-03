@@ -141,7 +141,7 @@ public class ElasticsearchService : IElasticsearchService
         if (!bulkResponse.IsValid || bulkResponse.ApiCall.HttpStatusCode.Equals(401)
                                   || bulkResponse.ApiCall.HttpStatusCode.Equals(403)
                                   || bulkResponse is null)
-            throw new Exception("Erro ao connectar com OpenSearch... Dado retornando para fila");
+            throw new Exception("Erro ao connectar com Elastic... Dado retornando para fila");
     }
 
     private async Task EnsureIndexExists(string indexName)

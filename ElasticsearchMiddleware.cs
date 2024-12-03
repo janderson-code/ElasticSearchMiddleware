@@ -18,15 +18,8 @@ using Newtonsoft.Json;
 
 namespace elasticsearch
 {
-    internal sealed class ElasticSearchMiddleware : IMiddleware
+    internal sealed class ElasticSearchMiddleware(ConcurrentQueue<IndexingTask> indexingTasks) : IMiddleware
     {
-        private ConcurrentQueue<IndexingTask> _indexingTasks;
-
-        public ElasticSearchMiddleware(ConcurrentQueue<IndexingTask> indexingTasks)
-        {
-            _indexingTasks = indexingTasks;
-        }
-
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             if (ElasticUtils.ShouldExcludeController(context))
@@ -45,7 +38,7 @@ namespace elasticsearch
             string requestObj = await ReadRequestBody(context.Request);
 
             var originalBodyStream = context.Response.Body;
-            
+
             try
             {
                 await ReadResponseBody(context, next, requestObj, stopwatch, originalBodyStream);
@@ -62,7 +55,8 @@ namespace elasticsearch
             }
         }
 
-        private async Task ReadResponseBody(HttpContext context, RequestDelegate next, string requestObj, Stopwatch stopwatch,
+        private async Task ReadResponseBody(HttpContext context, RequestDelegate next, string requestObj,
+            Stopwatch stopwatch,
             Stream originalBodyStream)
         {
             using (var buffer = new MemoryStream())
@@ -142,7 +136,7 @@ namespace elasticsearch
                 RequestPath = context.Request.Path,
             };
 
-            _indexingTasks.Enqueue(indexingTask);
+            indexingTasks.Enqueue(indexingTask);
 
             return Task.CompletedTask;
         }

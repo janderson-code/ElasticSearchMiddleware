@@ -6,35 +6,31 @@ using System.Threading.Tasks;
 using elasticsearch.Interfaces;
 using elasticsearch.Models.Generics;
 using elasticsearch.Models.Tasks;
-using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
 namespace elasticsearch.Jobs;
 
 internal class ElasticIndexBackgroundService : IJob
 {
-    private readonly IServiceScopeFactory _serviceScopeFactory;
     private ConcurrentQueue<IndexingTask> _indexingTasks;
+    private readonly IElasticsearchService _elasticsearchService;
 
-    public ElasticIndexBackgroundService(IServiceScopeFactory serviceScopeFactory, ConcurrentQueue<IndexingTask> indexingTasks)
+    public ElasticIndexBackgroundService(ConcurrentQueue<IndexingTask> indexingTasks,
+        IElasticsearchService elasticsearchService)
     {
-        _serviceScopeFactory = serviceScopeFactory;
         _indexingTasks = indexingTasks;
+        _elasticsearchService = elasticsearchService;
     }
 
     public async Task Execute(IJobExecutionContext context)
     {
-        using var scope = _serviceScopeFactory.CreateScope();
-
-        var elasticSearchService = scope.ServiceProvider.GetRequiredService<IElasticsearchService>();
-
         while (_indexingTasks.Count > 0)
         {
             if (!_indexingTasks.TryDequeue(out var task)) continue;
 
             try
             {
-                await IndexDataToElastic(task, elasticSearchService);
+                await IndexDataToElastic(task, _elasticsearchService);
             }
             catch (Exception e)
             {
@@ -45,7 +41,7 @@ internal class ElasticIndexBackgroundService : IJob
 
     public async Task IndexDataToElastic(IndexingTask task, IElasticsearchService elasticSearch)
     {
-        GenericRequestResponse dataRequestResponse = task;
+        var dataRequestResponse = task;
 
         string indexName = task.NameIndex;
 

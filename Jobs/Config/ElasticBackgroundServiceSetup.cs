@@ -8,13 +8,9 @@ namespace elasticsearch.Jobs.Config
 {
     internal class ElasticBackgroundServiceSetup : IConfigureOptions<QuartzOptions>
     {
-        private readonly ConcurrentQueue<IndexingTask> _indexingTasks;
-        private readonly IServiceProvider _serviceProvider;
-
-        public ElasticBackgroundServiceSetup(IServiceProvider serviceProvider, ConcurrentQueue<IndexingTask> indexingTasks)
+        public ElasticBackgroundServiceSetup()
         {
-            _serviceProvider = serviceProvider;
-            _indexingTasks = indexingTasks;
+            
         }
 
         public void Configure(QuartzOptions options)
